@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Pengaturan — Pagesmith</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="page-head">
+        <h1>Pagesmith</h1>
+        <p class="lead">
+          Kelola edit yang tersimpan per domain, atur tampilan panel, dan cadangkan data kamu.
+        </p>
+      </header>
+
+      <!-- ---------- Domain tersimpan ---------- -->
+      <section class="card">
+        <div class="card-head">
+          <h2>Domain tersimpan</h2>
+          <span class="pill" id="domain-count">0</span>
+        </div>
+        <p class="desc">
+          Domain di daftar ini akan otomatis menerapkan editnya setiap kali dibuka. Menghapus
+          domain di sini akan menghapus edit tersimpan dan mencabut izin aksesnya.
+        </p>
+        <div id="domains" class="list"></div>
+      </section>
+
+      <!-- ---------- Tampilan ---------- -->
+      <section class="card">
+        <div class="card-head">
+          <h2>Tampilan</h2>
+        </div>
+
+        <div class="field">
+          <label for="highlightColor">Warna highlight</label>
+          <div class="row">
+            <input type="color" id="highlightColor" />
+            <input type="text" id="highlightColorText" class="mono" spellcheck="false" maxlength="7" />
+          </div>
+          <p class="hint">Warna kotak penanda elemen saat memilih dan mengedit.</p>
+        </div>
+
+        <div class="field">
+          <label for="highlightWidth">Ketebalan garis (px)</label>
+          <input type="number" id="highlightWidth" min="1" max="6" step="1" />
+        </div>
+
+        <div class="field">
+          <label class="check">
+            <input type="checkbox" id="showTooltip" />
+            <span> Tampilkan tooltip saat memilih elemen</span>
+          </label>
+        </div>
+
+        <div class="field">
+          <label class="check">
+            <input type="checkbox" id="autoOpenPanel" />
+            <span> Buka panel otomatis setelah elemen dipilih</span>
+          </label>
+        </div>
+
+        <div class="field">
+          <label class="check">
+            <input type="checkbox" id="inlineEditOnDoubleClick" />
+            <span> Klik dua kali pada teks untuk mengedit langsung di halaman</span>
+          </label>
+          <p class="hint">Enter untuk menyimpan, Esc untuk membatalkan, Shift+Enter untuk baris baru.</p>
+        </div>
+      </section>
+
+      <!-- ---------- Cadangan ---------- -->
+      <section class="card">
+        <div class="card-head">
+          <h2>Cadangan</h2>
+        </div>
+        <p class="desc">
+          Ekspor menyimpan seluruh edit dan pengaturan ke satu berkas JSON. Impor bisa
+          menggabungkan dengan data yang ada atau menggantinya seluruhnya.
+        </p>
+        <div class="row wrap-row">
+          <button class="btn" id="btn-export">Ekspor JSON</button>
+          <button class="btn" id="btn-import-merge">Impor (gabung)</button>
+          <button class="btn" id="btn-import-replace">Impor (ganti semua)</button>
+        </div>
+        <input type="file" id="file-input" accept="application/json,.json" hidden />
+      </section>
+
+      <!-- ---------- Berbahaya ---------- -->
+      <section class="card danger-card">
+        <div class="card-head">
+          <h2>Hapus data</h2>
+        </div>
+        <p class="desc">
+          Menghapus data tidak bisa dibatalkan. Ekspor dulu bila kamu masih membutuhkannya.
+        </p>
+        <div class="row wrap-row">
+          <button class="btn danger" id="btn-clear-edits">Hapus semua edit</button>
+          <button class="btn danger" id="btn-clear-all">Hapus semua data + izin</button>
+        </div>
+      </section>
+
+      <footer class="page-foot">
+        <span id="version"></span>
+        <span class="sep">·</span>
+        <span id="storage-info"></span>
+      </footer>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script type="module" src="options.js"></script>
+  </body>
+</html>

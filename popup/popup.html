@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Pagesmith</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header class="top">
+      <span class="dot" aria-hidden="true"></span>
+      <div class="titles">
+        <h1>Pagesmith</h1>
+        <p class="sub" id="origin">Memuat…</p>
+      </div>
+    </header>
+
+    <section class="card">
+      <div class="stat">
+        <span class="num" id="count">0</span>
+        <span class="stat-label">edit di tab ini</span>
+      </div>
+      <p class="hint" id="saved-hint"></p>
+    </section>
+
+    <div class="actions">
+      <button class="btn primary" id="btn-panel">Buka Panel Editor</button>
+      <button class="btn" id="btn-pick">Pilih Elemen</button>
+    </div>
+
+    <section class="card">
+      <label class="switch-row">
+        <input type="checkbox" id="persist" />
+        <span class="switch-text">
+          <strong>Simpan untuk domain ini</strong>
+          <small id="persist-desc">Edit otomatis diterapkan lagi tiap domain ini dibuka.</small>
+        </span>
+      </label>
+    </section>
+
+    <div class="actions">
+      <button class="btn danger" id="btn-reset">Batalkan Semua di Tab Ini</button>
+    </div>
+
+    <footer class="foot">
+      <button class="link" id="btn-options">Pengaturan</button>
+      <span class="ver" id="version"></span>
+    </footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>
