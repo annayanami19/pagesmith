@@ -1,0 +1,21 @@
+﻿# Normalisasi akhir baris untuk paket distribusi.
+#
+# Isi folder ini disalin oleh scripts/build-dist.ps1 dari proyek sumber dan
+# akhirnya di-zip untuk Chrome Web Store. Menyimpan semuanya sebagai LF
+# membuat hasilnya konsisten di platform mana pun, dan membuat git status
+# tetap bersih setelah rebuild.
+#
+# Tanpa berkas ini, line ending mengikuti setelan global core.autocrlf tiap
+# mesin sehingga berkas yang isinya identik tetap terlihat "modified".
+
+* text=auto eol=lf
+
+# Berkas biner - jangan pernah dinormalkan.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.zip binary
